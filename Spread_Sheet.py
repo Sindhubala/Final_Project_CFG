@@ -44,7 +44,7 @@ def sale_summary(data):
     total = sum(sales)
 
     # The average
-    avg = total / 12
+    avg = total / len(sales)
     avg = round(avg, 2)
     summary.append(["",""])
     summary.append(["Total Sales",total])
@@ -83,12 +83,9 @@ def write_to_spreadsheet(data):
         workbook.save("spreadsheet.xlsx")
 
 
-
 def run():
     data = read_data()
     monthly_change(data)
     sale_summary(data)
 
 run()
-
-
